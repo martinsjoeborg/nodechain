@@ -30,17 +30,26 @@ const GetBlocks = () => {
                 <li>Hash: {block.hash}</li>
                 <li>Previous Hash: {block.previousHash}</li>
                 <h4>Data:</h4>
-                <ul>
-                    {block.data.map(tnx => {
-                    return <div key={tnx.transactionId}>
-                        <li>Sender: {tnx.sender}</li>
-                        <li>Recipient: {tnx.recipient}</li>
-                        <li>Amount: {tnx.amount}</li>
-                        <li>ID: {tnx.transactionId}</li>
-                        <br />
-                        </div>
-                    })}
-                </ul>
+                <div>
+                    {!block.data ? <p>No data</p> : 
+                    
+                    <ul>
+                            
+                        {block.data.map(tnx => {
+                            return <div key={tnx.transactionId}>
+                            <li>Sender: {tnx.sender}</li>
+                            <li>Recipient: {tnx.recipient}</li>
+                            <li>Amount: {tnx.amount} NodeCoin</li>
+                            <li>ID: {tnx.transactionId}</li>
+                            <br />
+                            </div>
+                        })}
+
+                    </ul>
+                    
+                           
+                    }
+                </div>
                 
             </ul>
 
@@ -51,17 +60,12 @@ const GetBlocks = () => {
         console.log(blockchain);
     }
 
-    function getBlock() {
-
-    }
-
-
     return ( 
         <div className="container-getBlocks">
             <button onClick={getBlockchain}>Get full chain</button>
             <button onClick={test}>test</button>
 
-            <div>{blockchainMapping}</div>
+            <div className="blockchain-list">{blockchainMapping}</div>
 
         </div>
      );

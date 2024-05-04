@@ -7,3 +7,9 @@
     list-style: none;
     text-align: left;
 }
+
+.blockchain-list {
+    width: 1000px; /* Adjust the width as needed */
+ height: 350px; /* Adjust the height as needed */
+ overflow: auto;
+}
