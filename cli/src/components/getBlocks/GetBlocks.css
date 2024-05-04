@@ -10,6 +10,6 @@
 
 .blockchain-list {
     width: 1000px; /* Adjust the width as needed */
- height: 350px; /* Adjust the height as needed */
+ height: 400px; /* Adjust the height as needed */
  overflow: auto;
 }
