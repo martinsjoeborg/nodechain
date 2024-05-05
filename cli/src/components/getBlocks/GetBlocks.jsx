@@ -23,38 +23,31 @@ const GetBlocks = () => {
 
     const blockchainMapping = blockchain.map((block) => {
         return (
-            <ul className="blockchain-ul" key={block.index}>
-                <h3>Block: {block.index}</h3>
-                <li>Timestamp: {block.timestamp}</li>
-                <li>Nonce: {block.nonce}</li>
-                <li>Hash: {block.hash}</li>
-                <li>Previous Hash: {block.previousHash}</li>
-                <h4>Data:</h4>
-                <div>
-                    {!block.data ? <p>No data</p> : 
-                    
-                    <ul>
-                            
-                        {block.data.map(tnx => {
-                            return <div key={tnx.transactionId}>
-                            <li>Sender: {tnx.sender}</li>
-                            <li>Recipient: {tnx.recipient}</li>
-                            <li>Amount: {tnx.amount} NodeCoin</li>
-                            <li>ID: {tnx.transactionId}</li>
-                            <br />
-                            </div>
-                        })}
-
-                    </ul>
-                    
-                           
-                    }
-                </div>
-                
-            </ul>
-
+          <ul className="blockchain-ul" key={block.index}>
+            <h3>Block: {block.index}</h3>
+            <li>Timestamp: {block.timestamp}</li>
+            <li>Nonce: {block.nonce}</li>
+            <li>Hash: {block.hash}</li>
+            <li>Previous Hash: {block.previousHash}</li>
+            <h4>Data:</h4>
+            <div>
+              {!block.data ? <p>No data</p> : 
+                <ul>
+                  {block.data.map((tnx) => (
+                    <div key={tnx.transactionId}>
+                      <li>Sender: {tnx.sender}</li>
+                      <li>Recipient: {tnx.recipient}</li>
+                      <li>Amount: {tnx.amount} NodeCoin</li>
+                      <br />
+                    </div>
+                  ))}
+                </ul>
+              }
+            </div>
+          </ul>
         );
-    })
+      });
+      
     
     function test() {
         console.log(blockchain);

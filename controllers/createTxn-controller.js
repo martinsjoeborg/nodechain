@@ -15,7 +15,7 @@ exports.broadcastTxn = (req, res) => {
     NodeChain.addTxnToPendingList(txn);
 
     NodeChain.networkNodes.forEach(async (url) => {
-      await axios.post(`${url}/api/v1/createLicence`, txn);
+      await axios.post(`${url}/api/v1/createTxn`, txn);
   });
 
   res.status(201).json({ success: true, data: 'Transaction added and updated.' });
